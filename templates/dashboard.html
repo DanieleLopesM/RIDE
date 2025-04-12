@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Gerencial - RIDE</title>
+
+    <!-- CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-unificados.css') }}">
+</head>
+<body class="bg-custom text-white">
+
+    <!-- Topbar -->
+    <nav class="navbar navbar-dark bg-topbar shadow-sm px-4 py-2">
+        <div class="container-fluid justify-content-center">
+            <img src="{{ url_for('static', filename='images/logotipo-escrito.jpg') }}" alt="Logotipo Escrito RIDE" class="img-fluid" style="max-height: 60px;">
+        </div>
+    </nav>
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-sidebar p-4" id="sidebar-wrapper">
+            <div class="text-center mb-4">
+                <img src="{{ url_for('static', filename='images/logotipo-livro.jpg') }}" class="img-fluid" alt="Logotipo Livro RIDE" style="max-width: 90px;">
+            </div>
+
+            <ul class="list-unstyled">
+                {% if perfil == 'Diretor' or perfil == 'Gestor' %}
+                    <li><a href="{{ url_for('usuarios') }}" class="btn btn-sidebar w-100 text-start mb-2"><i class="bi bi-people-fill me-2"></i>Usuários</a></li>
+                    <li><a href="#" class="btn btn-sidebar w-100 text-start mb-2"><i class="bi bi-folder-fill me-2"></i>Categorias</a></li>
+                    <li><a href="#" class="btn btn-sidebar w-100 text-start mb-2"><i class="bi bi-file-earmark-text-fill me-2"></i>Modelos</a></li>
+                    <li><a href="#" class="btn btn-sidebar w-100 text-start mb-2"><i class="bi bi-file-check-fill me-2"></i>Preenchidos</a></li>
+                {% elif perfil == 'Professor' %}
+                    <li><a href="#" class="btn btn-sidebar w-100 text-start mb-2"><i class="bi bi-file-earmark-text-fill me-2"></i>Modelos</a></li>
+                    <li><a href="#" class="btn btn-sidebar w-100 text-start mb-2"><i class="bi bi-upload me-2"></i>Enviar</a></li>
+                {% endif %}
+                <li><a href="{{ url_for('logout') }}" class="btn btn-sidebar-logout w-100 text-start mt-4"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Conteúdo principal -->
+        <div class="container-fluid p-5 bg-white text-dark">
+            <h2 class="fw-bold mb-4">Bem-vindo(a), {{ nome }}</h2>
+            <p class="lead">Você está logado como <strong>{{ perfil }}</strong>.</p>
+
+        </div>
+    </div>
+
+    <!-- JS do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
