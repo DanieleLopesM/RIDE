@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS modelo_documento (
     id_modelo_documento INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(100) NOT NULL,
     descricao TEXT,
-    arquivo VARCHAR(255),
+    arquivo LONGBLOB,  -- Armazena o conteúdo binário do arquivo Word
     id_categoria INT NOT NULL,
     id_usuario INT NOT NULL,
     data_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -41,15 +41,14 @@ CREATE TABLE IF NOT EXISTS documento_preenchido (
     id_documento_preenchido INT AUTO_INCREMENT PRIMARY KEY,
     id_documento_modelo INT NOT NULL,
     id_usuario INT NOT NULL,
-    arquivo VARCHAR(255),
+    arquivo LONGBLOB,  -- Armazena o conteúdo binário do documento preenchido
     data_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     ativo BOOLEAN DEFAULT 1,
     FOREIGN KEY (id_documento_modelo) REFERENCES modelo_documento(id_modelo_documento),
     FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
 );
 
--- Inserção do usuário master (diretor).
--- Inserção do usuário master (diretor) com SHA2(256)
+-- Inserção do usuário master (diretor)
 INSERT INTO usuario (nome, cpf, senha, perfil, ativo) VALUES (
     'Administrador',
     '123.456.789-00',

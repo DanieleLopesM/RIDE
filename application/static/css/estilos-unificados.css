@@ -1,0 +1,219 @@
+/* Container principal da tela de login */
+.login-box {
+    background-color: #3C8C3A;
+    max-width: 750px;
+}
+
+/* Fundo da coluna do logotipo */
+.bg-image {
+    background-color: #3C8C3A;
+}
+
+/* Campo de formulário */
+.form-control {
+    border-radius: 6px;
+}
+
+/* Cor personalizada para texto (igual ao fundo do box) */
+.text-custom-color {
+    color: #3C8C3A !important;
+}
+
+/* Fundo principal da aplicação da web */
+.bg-custom {
+    background-color: #3C8C3A;
+    min-height: 100vh;
+}
+
+/* Estilo da sidebar do dashboard */
+.bg-sidebar {
+    background-color: #3C8C3A;
+    width: 250px;
+    min-height: 100vh;
+}
+
+/* Torna o sidebar responsivo */
+@media (max-width: 991.98px) {
+    #sidebar-wrapper {
+        display: none !important;
+        width: 0 !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .bg-sidebar {
+        background-color: transparent !important;
+        width: 0 !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+/* Barra superior do dashboard */
+.bg-topbar {
+    background-color: #3C8C3A;
+}
+
+/* Botões do menu lateral do dasboard */
+.btn-sidebar {
+    background-color: white;
+    color: #3C8C3A;
+    border: 1px solid white;
+    font-weight: 500;
+}
+
+.btn-sidebar:hover {
+    background-color: #3C8C3A;
+    color: white;
+    border: 1px solid white;
+    font-weight: 500;
+}
+
+/* Botões com a cor padrão da aplicação da web */
+.btn-blue-marine {
+    background-color: #3C8C3A;
+    color: white;
+    border: 1px solid #3C8C3A;
+}
+
+.btn-blue-marine:hover {
+    background-color: white;
+    color: #2C3A40;
+    border: 1px solid #2C3A40;
+}
+
+/* Botão de logout do menu lateral do dasboard */
+.btn-sidebar-logout {
+    background-color: #2C3A40;
+    color: white;
+    border: 1px solid #2C3A40;
+    font-weight: 500;
+}
+
+.btn-sidebar-logout:hover {
+    background-color: white;
+    color: #2C3A40;
+    border: 1px solid #2C3A40;
+    font-weight: 500;
+}
+
+/* Sinaliza campos obrigatórios nos formulários */
+.required {
+    color: #2C3A40;
+}
+
+/* Linha divisória entre o formulário de login e logotipo */
+.border-end-custom {
+    border-right: 2px solid #fff !important;
+}
+
+/* Texto do conteúdo principal */
+.container-fluid {
+    color: white;
+}
+
+/* Centraliza verticalmente o botão de fechar do alerta */
+.alert .btn-close {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+}
+
+/* Estiliza a bolinha (círculo) do stepper */
+.bs-stepper .bs-stepper-circle {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+/* Altera a cor da etapa ativa do stepper */
+.bs-stepper .step.active .bs-stepper-circle {
+    background-color: #3C8C3A !important;
+    color: #fff;
+}
+
+/* Estiliza a cor do texto ao lado da bolinha da etapa ativa */
+.bs-stepper .step.active .bs-stepper-label {
+    color: #3C8C3A;
+    font-weight: 700;
+}
+
+/* Deixa a borda da bolinha do stepper com a mesma cor */
+.bs-stepper .step .bs-stepper-circle {
+    border: 1px solid #3C8C3A;
+}
+
+/* ===== Substituições das cores padrão do Bootstrap ===== */
+
+/* Textos */
+.text-primary {
+    color: #3C8C3A !important;
+}
+.text-secondary {
+    color: #2C3A40 !important;
+}
+
+/* Fundos */
+.bg-primary {
+    background-color: #3C8C3A !important;
+}
+.bg-secondary {
+    background-color: #2C3A40 !important;
+}
+
+/* Bordas */
+.border-primary {
+    border-color: #3C8C3A !important;
+}
+.border-secondary {
+    border-color: #2C3A40 !important;
+}
+
+/* Botões preenchidos */
+.btn-primary {
+    background-color: #3C8C3A !important;
+    border-color: #3C8C3A !important;
+    color: #fff !important;
+}
+.btn-primary:hover {
+    background-color: #6EBF6B !important;
+    border-color: #6EBF6B !important;
+    color: #fff !important;
+}
+.btn-secondary {
+    background-color: #2C3A40 !important;
+    border-color: #2C3A40 !important;
+    color: #fff !important;
+}
+.btn-secondary:hover {
+    background-color: #3C8C3A !important;
+    border-color: #3C8C3A !important;
+    color: #fff !important;
+}
+
+/* Botões outline */
+.btn-outline-primary {
+    color: #3C8C3A !important;
+    border-color: #3C8C3A !important;
+}
+.btn-outline-primary:hover {
+    background-color: #3C8C3A !important;
+    color: white !important;
+}
+
+.btn-outline-secondary {
+    color: #2C3A40 !important;
+    border-color: #2C3A40 !important;
+}
+.btn-outline-secondary:hover {
+    background-color: #2C3A40 !important;
+    color: white !important;
+}

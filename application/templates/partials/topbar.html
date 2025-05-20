@@ -1,0 +1,31 @@
+<!-- Topbar (visível somente em telas pequenas e médias) -->
+<nav class="navbar navbar-dark bg-topbar shadow-sm px-4 py-2 d-block d-lg-none">
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+
+        <!-- Botão de sanduíche com dropdown -->
+        <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-list me-2"></i>Exibir Menu
+            </button>
+
+            <!-- Opções de menu por perfil de usuário -->
+            <ul class="dropdown-menu dropdown-menu-dark">
+
+                <li><a class="dropdown-item" href="{{ url_for('dashboard.management_panel') }}"><i class="bi bi-grid-fill me-2"></i>Dashboard</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('users.edit_user_profile') }}"><i class="bi bi-person-lines-fill me-2"></i>Meu Perfil</a></li>
+
+                {% if role == 'Diretor' or role == 'Gestor' %}
+                    <li><a class="dropdown-item" href="{{ url_for('users.list_users') }}"><i class="bi bi-people-fill me-2"></i>Usuários</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('document_category.list_categories') }}"><i class="bi bi-folder-fill me-2"></i>Categorias</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('document_model.list_models') }}"><i class="bi bi-file-earmark-text-fill me-2"></i>Modelos</a></li>
+                {% elif role == 'Professor' %}
+                    <li><a class="dropdown-item" href="{{ url_for('document_model.list_models') }}"><i class="bi bi-file-earmark-text-fill me-2"></i>Modelos</a></li>
+                {% endif %}
+
+                <li><a class="dropdown-item" href="{{ url_for('filled_document.list_filled_documents') }}"><i class="bi bi-file-check-fill me-2"></i>Preenchidos</a></li>
+                <li><a class="dropdown-item text-danger" href="{{ url_for('authentication.logout_user') }}"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+            </ul>
+        </div>
+        
+    </div>
+</nav>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Categoria - RIDE</title>
+
+    <!-- CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Ícones do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-unificados.css') }}">
+</head>
+<body class="text-white">
+
+    <!-- Topbar -->
+    {% include 'partials/topbar.html' %}
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        {% include 'partials/sidebar.html' %}
+
+        <!-- Conteúdo principal -->
+        <div class="container-fluid p-5 bg-white text-dark">
+            <div class="card shadow rounded-3 border-0 col-12 col-md-10 col-lg-8 mx-auto">
+                <div class="card-body">
+
+                    <!-- Título -->
+                    <h2 class="fw-bold mb-4 text-center">Cadastrar Categoria</h2>
+
+                    <!-- Exibição de mensagens -->
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} alert-dismissible fade show text-center py-2" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+
+                    <!-- Cabeçalho -->
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <a href="{{ url_for('document_category.list_categories') }}" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left-circle me-2"></i>Voltar
+                        </a>
+                        <p class="fw-bold mb-0">(<span class="required"> * </span>) Obrigatório</p>
+                    </div>
+
+                    <!-- Formulário de cadastro de categoria -->
+                    <form method="POST" action="{{ url_for('document_category.register_category') }}">
+
+                        <!-- Nome -->
+                        <div class="mb-3">
+                            <label for="nome" class="form-label fw-bold">Nome <span class="required">*</span></label>
+                            <input type="text" class="form-control" id="nome" name="nome" required>
+                        </div>
+
+                        <!-- Botão de submissão -->
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-check-circle me-1"></i> Salvar
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

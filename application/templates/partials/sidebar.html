@@ -1,0 +1,23 @@
+<!-- Sidebar (visível somente em telas grandes) -->
+<div class="d-none d-lg-block bg-sidebar p-4" id="sidebar-wrapper">
+    <div class="text-center mb-4">
+        <img src="{{ url_for('static', filename='images/logotipo.png') }}" class="img-fluid" alt="Logotipo" >
+    </div>
+
+    <!-- Opções do menu por perfil de usuário -->
+    <ul class="list-unstyled">
+        <li><a href="{{ url_for('dashboard.management_panel') }}" class="btn btn-sidebar w-100 text-start mb-2"><i class="bi bi-grid-fill me-2"></i>Dashboard</a></li>
+        <li><a href="{{ url_for('users.edit_user_profile') }}" class="btn btn-sidebar w-100 text-start mb-2"><i class="bi bi-person-lines-fill me-2"></i>Meu Perfil</a></li>
+
+        {% if role == 'Diretor' or role == 'Gestor' %}
+            <li><a href="{{ url_for('users.list_users') }}" class="btn btn-sidebar w-100 text-start mb-2"><i class="bi bi-people-fill me-2"></i>Usuários</a></li>
+            <li><a href="{{ url_for('document_category.list_categories') }}" class="btn btn-sidebar w-100 text-start mb-2"><i class="bi bi-folder-fill me-2"></i>Categorias</a></li>
+            <li><a href="{{ url_for('document_model.list_models') }}" class="btn btn-sidebar w-100 text-start mb-2"><i class="bi bi-file-earmark-text-fill me-2"></i>Modelos</a></li>
+        {% elif role == 'Professor' %}
+            <li><a href="{{ url_for('document_model.list_models') }}" class="btn btn-sidebar w-100 text-start mb-2"><i class="bi bi-file-earmark-text-fill me-2"></i>Modelos</a></li>
+        {% endif %}
+
+        <li><a href="{{ url_for('filled_document.list_filled_documents') }}" class="btn btn-sidebar w-100 text-start mb-2"><i class="bi bi-file-check-fill me-2"></i>Preenchidos</a></li>
+        <li><a href="{{ url_for('authentication.logout_user') }}" class="btn btn-sidebar-logout w-100 text-start mt-4"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+    </ul>
+</div>
